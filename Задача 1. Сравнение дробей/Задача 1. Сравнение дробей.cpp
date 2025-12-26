@@ -1,7 +1,7 @@
 ﻿// Задача 1. Сравнение дробей.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
 
 #include <iostream>
+#include <numeric>
 
 class Fraction
 {
@@ -10,39 +10,42 @@ private:
 	int denominator_;
 
 public:
+	
 	Fraction(int numerator, int denominator)
 	{
-		numerator_ = numerator;
-		denominator_ = denominator;
+		int gcd = std::gcd(numerator, denominator); 
+		numerator_ = numerator / gcd;              
+		denominator_ = denominator / gcd;          
 	}
 
 	friend bool operator==(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ == f2.numerator_ && f1.denominator_ == f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) == (f2.numerator_ / f2.denominator_));
 	}
 		
 	friend bool operator!=(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ != f2.numerator_ && f1.denominator_ != f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) != (f2.numerator_ / f2.denominator_));
 	}
 	
 	friend bool operator<(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ < f2.numerator_ && f1.denominator_ < f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) < (f2.numerator_ / f2.denominator_));
 	}
 	
 	friend bool operator>(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ > f2.numerator_ && f1.denominator_ > f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) > (f2.numerator_ / f2.denominator_));
 	}
 	friend bool operator<=(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ <= f2.numerator_ && f1.denominator_ <= f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) <= (f2.numerator_ / f2.denominator_));
 	}
 	friend bool operator>=(const Fraction& f1, const Fraction& f2)
 	{
-		return (f1.numerator_ >= f2.numerator_ && f1.denominator_ >= f2.denominator_);
+		return ((f1.numerator_ / f1.denominator_) >= (f2.numerator_ / f2.denominator_));
 	}
+
 };
 
 int main()
