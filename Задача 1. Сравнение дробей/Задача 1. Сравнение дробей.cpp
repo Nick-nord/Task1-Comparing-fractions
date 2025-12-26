@@ -20,30 +20,30 @@ public:
 
 	friend bool operator==(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) == (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) == (f2.numerator_ * f1.denominator_));
 	}
 		
 	friend bool operator!=(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) != (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) != (f2.numerator_ * f1.denominator_));
 	}
 	
 	friend bool operator<(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) < (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) < (f2.numerator_ * f1.denominator_));
 	}
 	
 	friend bool operator>(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) > (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) > (f2.numerator_ * f1.denominator_));
 	}
 	friend bool operator<=(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) <= (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) <= (f2.numerator_ * f1.denominator_));
 	}
 	friend bool operator>=(const Fraction& f1, const Fraction& f2)
 	{
-		return ((f1.numerator_ / f1.denominator_) >= (f2.numerator_ / f2.denominator_));
+		return ((f1.numerator_ * f2.denominator_) >= (f2.numerator_ * f1.denominator_));
 	}
 
 };
